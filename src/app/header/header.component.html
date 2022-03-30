@@ -1,0 +1,25 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">{{"nav.logo" | translate}}</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li role="presentation" class="nav-item" routerLinkActive="active" >
+            <a class="nav-link active" aria-current="page" routerLink="/" >{{"nav.title-home" | translate}}</a>
+          </li>
+          <li role="presentation" class="nav-item" routerLinkActive="active">
+            <a class="nav-link active" aria-current="page" routerLink="/technews">{{"nav.title-tech" | translate}}</a>
+          </li>
+        </ul>
+        <div class="col-lg-2" >
+          <select name="" id="" class="custom-select" (change)="changeLang($event)">
+            <option value="en">{{"nav.lang.en" | translate}}</option>
+            <option value="ua">{{"nav.lang.ua" | translate}}</option>
+            <option value="de">{{"nav.lang.de" | translate}}</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  </nav>
