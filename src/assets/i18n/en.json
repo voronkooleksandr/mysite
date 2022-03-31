@@ -1,0 +1,18 @@
+{   
+    "nav" : {
+        "logo": "TruthUA",
+        "title-home": "Home",
+        "title-tech": "Tech News",
+        "lang": {
+            "ua": "Ukrainian",
+            "en": "English",
+            "de": "German"
+        }
+    },   
+    "placeholder": "Search",
+    "сlean": "Clean",
+    "button": "Read more",
+    "button-detail": "Detailed",
+
+    "footer": "Created by Oleksandr Voronko"
+}
