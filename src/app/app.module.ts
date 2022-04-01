@@ -10,10 +10,10 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TechNewsComponent } from './components/technews/technews.component';
 import { NewsFilterPipe } from './pipe/news-filter.pipe';
 import { DetailednewsComponent } from './components/technews/detailednews/detailednews.component';
-import {TranslateLoader, TranslateModule } from '@ngx-translate/core'; 
+import {TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NotfoundComponent } from './components/notfound/notfound.component';
-import { HeaderComponent } from './header/header.component';
+import { HeaderComponent } from './components/header/header.component';
 import { HttpService } from './service/http.service';
 
 export function createTranslateLoader(http: HttpClient) {
