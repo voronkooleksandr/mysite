@@ -13,7 +13,7 @@ export class HttpService {
   search = new BehaviorSubject<string>("");
   urlAllNews: string = "https://newsapi.org/v2/top-headlines?country=ua&apiKey=c27589af639e48b99d58747c11cd2445";
   urlTechNews: string = "https://newsapi.org/v2/top-headlines?country=ua&category=technology&apiKey=c27589af639e48b99d58747c11cd2445"
-  
+
 
   constructor(private httpClient: HttpClient) { }
 
@@ -26,8 +26,8 @@ export class HttpService {
     return this.httpClient.get<News[]>(this.urlTechNews);
   }
 
-  getDetailedNews(author: string): Observable<any> {
-    return this.httpClient.get<News>(`${this.urlTechNews}/author/${author}`);
-  }
-  
+  // getDetailedNews(author: string): Observable<any> {
+  //   return this.httpClient.get<News>(`${this.urlTechNews}/author/${author}`);
+  // }
+
 }

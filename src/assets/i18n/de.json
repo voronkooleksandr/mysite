@@ -1,7 +1,8 @@
-{   
+{
     "nav" : {
         "logo": "WahrheitUA",
-        "title-home": "Zuhause",
+        "title-home": "Heim",
+        "title-top": "Top Nachrichten",
         "title-tech": "Tech Neuigkeiten",
         "lang": {
             "ua": "Ukrainisch",
@@ -9,11 +10,12 @@
             "de": "Deutsch"
         }
     },
-       
+
     "placeholder": "Suche",
     "сlean": "Aufräumen",
     "button": "Weiterlesen",
     "button-detail": "Ausführlich",
 
     "footer": "Autor Alexander Voronko"
+
 }

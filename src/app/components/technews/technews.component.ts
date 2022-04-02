@@ -11,30 +11,20 @@ import { HttpService } from '../../service/http.service';
   styleUrls: ['./technews.component.scss']
 })
 export class TechNewsComponent implements OnInit {
-  detail: any | {};
-  public detailId: string | null | undefined ;
-  news: News[] | null = null;
-  displayTechNews: any[] = [];
   searchItem: string = "";
-
-  constructor(private router: Router, private httpServise: HttpService) { }
-
+  displayTechNews: any[] = [];
+  
+  constructor(private httpServise: HttpService) { }
 
   ngOnInit(): void {
-    this.httpServise.getTechNews().subscribe((data: any) => {
-      this.displayTechNews = data.articles;
-    }, (error: any) => {
-      console.log(error);
-    });
-
-       this.httpServise.search.subscribe((value: string) => {
-      this.searchItem = value;
+    this.httpServise.getTechNews().subscribe((response: any) => {
+      console.log(response);
+      this.displayTechNews = response.articles;
     })
   }
 
   search(event: any ) {
     this.searchItem = (event.target as HTMLInputElement).value;
-    console.log(this.searchItem);
     this.httpServise.search.next(this.searchItem);
   }
 
@@ -44,9 +34,5 @@ export class TechNewsComponent implements OnInit {
     this.httpServise.search.next(this.searchItem);
   }
 
-  // onSelect (news: any) {
-  //   this.router.navigate(['/technews', news.author]);
-  // }
-    
 }
 

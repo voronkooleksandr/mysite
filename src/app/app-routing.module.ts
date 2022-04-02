@@ -4,13 +4,15 @@ import { TechNewsComponent } from './components/technews/technews.component';
 import { TopheadingComponent } from './components/topheading/topheading.component';
 import {DetailednewsComponent} from './components/technews/detailednews/detailednews.component'
 import { NotfoundComponent } from './components/notfound/notfound.component';
- 
+import { HomeComponent } from './home/home.component';
+
 const routes: Routes = [
-  {path: "", component: TopheadingComponent},
+  {path: "", component: HomeComponent},
+  {path: "topnews", component: TopheadingComponent},
   {path: "technews", component: TechNewsComponent},
   {path: "technews/:author", component: DetailednewsComponent },
   {path: 'notfound', component: NotfoundComponent},
-  {path: '**', redirectTo: "technews" }
+  {path: '**', redirectTo: "/notfound" }
 ];
 
 @NgModule({

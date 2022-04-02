@@ -15,6 +15,8 @@ import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { NotfoundComponent } from './components/notfound/notfound.component';
 import { HeaderComponent } from './components/header/header.component';
 import { HttpService } from './service/http.service';
+import { FooterComponent } from './footer/footer.component';
+import { HomeComponent } from './home/home.component';
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -28,7 +30,9 @@ export function createTranslateLoader(http: HttpClient) {
     NewsFilterPipe,
     DetailednewsComponent,
     NotfoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    FooterComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
