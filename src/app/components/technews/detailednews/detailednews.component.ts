@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
 import { News } from '../../../models/news';
 import { first, Subscription } from 'rxjs';
-import { HttpService } from 'src/app/service/http.service';
+import { HttpService } from 'src/app/services/http.service';
 
 @Component({
   selector: '<app-detailednews>',
@@ -17,7 +17,7 @@ export class DetailednewsComponent implements OnInit {
   news: News | null = null;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router, private httpService: HttpService) {
-    
+
    }
 
 
@@ -26,7 +26,7 @@ export class DetailednewsComponent implements OnInit {
       console.log(author);
       this.getDetailedNews(author);
     });
-     
+
   }
 
   getDetailedNews(author: string) {
@@ -43,5 +43,5 @@ export class DetailednewsComponent implements OnInit {
   onSelect (news: any) {
     this.router.navigate(['/technews', news.author]);
   }
-  
+
 }

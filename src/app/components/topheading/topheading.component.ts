@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { HttpService } from '../../service/http.service';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: 'app-topheading',
@@ -22,10 +22,10 @@ export class TopheadingComponent implements OnInit {
 
   search(event: any ) {
     this.searchItem = (event.target as HTMLInputElement).value;
-    
+
     this.httpServise.search.next(this.searchItem);
   }
-  
+
   clean (event: any) {
     this.searchItem = (event.target as HTMLInputElement).value;
     console.log(this.searchItem);

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { TechNewsComponent } from './components/technews/technews.component';
 import { TopheadingComponent } from './components/topheading/topheading.component';
 import {DetailednewsComponent} from './components/technews/detailednews/detailednews.component'
-import { NotfoundComponent } from './components/notfound/notfound.component';
+import { NotfoundComponent } from './notfound/notfound.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [

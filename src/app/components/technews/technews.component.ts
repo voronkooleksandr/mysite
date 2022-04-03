@@ -3,7 +3,7 @@ import { ActivatedRoute, ParamMap, Params, Router } from '@angular/router';
 
 import { News } from '../../models/news';
 
-import { HttpService } from '../../service/http.service';
+import { HttpService } from '../../services/http.service';
 
 @Component({
   selector: '<app-technews>',
@@ -13,7 +13,7 @@ import { HttpService } from '../../service/http.service';
 export class TechNewsComponent implements OnInit {
   searchItem: string = "";
   displayTechNews: any[] = [];
-  
+
   constructor(private httpServise: HttpService) { }
 
   ngOnInit(): void {
