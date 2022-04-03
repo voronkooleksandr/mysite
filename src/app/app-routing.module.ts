@@ -1,10 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { TechNewsComponent } from './components/technews/technews.component';
-import { TopheadingComponent } from './components/topheading/topheading.component';
 import {DetailednewsComponent} from './components/technews/detailednews/detailednews.component'
-import { NotfoundComponent } from './notfound/notfound.component';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { TopheadingComponent } from './components/topheading/topheading.component';
+
+
 
 const routes: Routes = [
   {path: "", component: HomeComponent},

@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TopheadingComponent } from './components/topheading/topheading.component';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TechNewsComponent } from './components/technews/technews.component';
@@ -12,11 +12,15 @@ import { NewsFilterPipe } from './pipes/news-filter.pipe';
 import { DetailednewsComponent } from './components/technews/detailednews/detailednews.component';
 import {TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
-import { NotfoundComponent } from './notfound/notfound.component';
-import { HeaderComponent } from './header/header.component';
+
 import { HttpService } from './services/http.service';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './pages/footer/footer.component';
+import { NotfoundComponent } from './pages/notfound/notfound.component';
+import { HeaderComponent } from './pages/header/header.component';
+import { HomeComponent } from './pages/home/home.component';
+import { TopheadingComponent } from './components/topheading/topheading.component';
+
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
