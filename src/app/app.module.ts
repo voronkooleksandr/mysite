@@ -10,17 +10,15 @@ import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { TechNewsComponent } from './components/technews/technews.component';
 import { NewsFilterPipe } from './pipes/news-filter.pipe';
 import { DetailednewsComponent } from './components/technews/detailednews/detailednews.component';
-import {TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
-import { HttpService } from './services/http.service';
+import { HttpService } from './services/http.servise';
 import { FooterComponent } from './pages/footer/footer.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopheadingComponent } from './components/topheading/topheading.component';
-
-
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -36,7 +34,7 @@ export function createTranslateLoader(http: HttpClient) {
     NotfoundComponent,
     HeaderComponent,
     FooterComponent,
-    HomeComponent
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
@@ -49,12 +47,12 @@ export function createTranslateLoader(http: HttpClient) {
       loader: {
         provide: TranslateLoader,
         useFactory: createTranslateLoader,
-        deps: [HttpClient]
+        deps: [HttpClient],
       },
-      defaultLanguage: 'en'
-    })
+      defaultLanguage: 'en',
+    }),
   ],
   providers: [HttpService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}
