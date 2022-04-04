@@ -7,10 +7,13 @@ import { News } from '../models/news';
   providedIn: 'root',
 })
 export class HttpService {
+
   displayNews: any[] = [];
   displayTechNews: any[] = [];
   searchItem: string | undefined;
   search = new BehaviorSubject<string>('');
+
+
   urlAllNews: string =
     'https://newsapi.org/v2/top-headlines?country=ua&apiKey=c27589af639e48b99d58747c11cd2445';
   urlTechNews: string =
@@ -24,5 +27,9 @@ export class HttpService {
 
   getTechNews(): Observable<any> {
     return this.httpClient.get<News[]>(this.urlTechNews);
+  }
+
+  getDetailNews(title: string): Observable<any> {
+    return this.httpClient.get(`${this.urlTechNews}/${title}`);
   }
 }

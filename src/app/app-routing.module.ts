@@ -12,9 +12,9 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "topnews", component: TopheadingComponent},
   {path: "technews", component: TechNewsComponent},
-  {path: "technews/:author", component: DetailednewsComponent },
+  {path: "features/:id", component: DetailednewsComponent },
   {path: 'notfound', component: NotfoundComponent},
-  {path: '**', redirectTo: "/notfound" }
+  {path: '**', redirectTo: "notfound" }
 ];
 
 @NgModule({

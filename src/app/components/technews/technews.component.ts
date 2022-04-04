@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { HttpService } from 'src/app/services/http.servise';
 import { News } from '../../models/news';
 
@@ -8,13 +9,14 @@ import { News } from '../../models/news';
   styleUrls: ['./technews.component.scss'],
 })
 export class TechNewsComponent implements OnInit {
+
   searchItem: string = '';
   displayTechNews: Array<News> = [];
 
-  constructor(private httpServise: HttpService) {}
+  constructor(private httpServise: HttpService, private router: Router) {}
 
   ngOnInit(): void {
-    this.httpServise.getTechNews().subscribe((response) => {
+    this.httpServise.getTechNews().subscribe((response: any) => {
       console.log(response);
       this.displayTechNews = response.articles;
     });
@@ -30,4 +32,10 @@ export class TechNewsComponent implements OnInit {
     console.log(this.searchItem);
     this.httpServise.search.next(this.searchItem);
   }
+
+  // onClickDetailNews (title: string) {
+  //   this.router.navigate(['/features', `${title}`]);
+  //   console.log(this.router.navigate(['/features/us', `${title}`]));
+  // }
+
 }

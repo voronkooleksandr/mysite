@@ -2,25 +2,31 @@
 
   <h4>{{"nav.title-tech" | translate}}</h4>
   <div class="row">
-      <div class="col-lg-3">
+    <div class="col-lg-3">
 
-          <input class="form-control me-2" type="text" placeholder="{{'placeholder' | translate }}" aria-label="Search"
-          [(ngModel)]="searchItem" (keyup)="clean($event)" >
-          <button class="btn btn-outline-success" type="submit" (click)="clean($event)">{{"сlean" | translate}}</button>
-      </div>
+      <input class="form-control me-2" type="text" placeholder="{{'placeholder' | translate }}" aria-label="Search"
+        [(ngModel)]="searchItem" (keyup)="clean($event)">
+      <button class="btn btn-outline-success" type="submit" (click)="clean($event)">{{"сlean" | translate}}</button>
+    </div>
   </div>
 
   <div class="row">
-      <div *ngFor="let news of displayTechNews | newsFilter:searchItem:'title' "
-       class="col-lg-3 mt-3 mb-3"
-       >
-          <div class="box">
-              <img src="{{news.urlToImage }}" width="100%" alt="">
-              <h5 class="mt-2 mb-2">{{news.title}}</h5>
-              <a href="{{news.url}}" target="_blank" class="btn btn-dark btn-sm mt-2" >{{"button" | translate}}</a>
-          </div>
+    <div *ngFor="let news of displayTechNews | newsFilter:searchItem:'title' " class="col-lg-3 mt-3 mb-3"
+    >
+      <div class="box">
+        <img src="{{news.urlToImage }}" width="100%" alt="">
+        <h3 class="mt-2 mb-2">{{news.title}}
 
+        </h3>
+        <a href="{{news.url}}" target="_blank" class="btn btn-dark btn-sm mt-2">{{"button" | translate}}</a>
       </div>
+
+      <a class="btn btn-link link-info p-md-1 my-1"
+      [routerLink]="['../features/', news.title]">
+      {{ 'users.userInfo' | translate }}
+  </a>
+    </div>
   </div>
+
 
 </div>

@@ -10,13 +10,12 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./detailednews.component.scss'],
 })
 export class DetailednewsComponent implements OnInit {
-  detail: any | {};
+  detailNews: string = "";
   subs = new Subscription()
-  detailNews: any;
-  news: News | null = null;
+
 
   constructor(
-    private activatedRoute: ActivatedRoute,
+    private route: ActivatedRoute,
     private router: Router,
     private httpService: HttpService
   ) {}
@@ -26,6 +25,12 @@ export class DetailednewsComponent implements OnInit {
     //   console.log(author);
     //   this.getDetailedNews(author);
     // });
+
+    //const title = this.route.snapshot.paramMap.get('title');
+    this.httpService.getDetailNews('title').subscribe((data: any) => {
+      this.detailNews = data.articles;
+      console.log(this.detailNews = data);
+    });
   }
 
   // getDetailedNews(author: string) {
@@ -34,6 +39,10 @@ export class DetailednewsComponent implements OnInit {
   //     console.log(this.detailNews);
   //   });
   // }
+
+  ngOnDestroy() {
+    this.subs.unsubscribe();
+  }
 
   goBack() {
     this.router.navigate(['technews']);
