@@ -33,9 +33,11 @@ export class TechNewsComponent implements OnInit {
     this.httpServise.search.next(this.searchItem);
   }
 
-  // onClickDetailNews (title: string) {
-  //   this.router.navigate(['/features', `${title}`]);
-  //   console.log(this.router.navigate(['/features/us', `${title}`]));
-  // }
+  onClickDetailNews (title: string) {
+    this.router.navigate(['/features', `${title}`]);
+    console.log(this.router.navigate(['/features/us', `${title}`]));
+  }
+
+  // для шаблону [routerLink]="['../features/', news.title]"
 
 }

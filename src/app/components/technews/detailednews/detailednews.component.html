@@ -1,3 +1,17 @@
+<div class="container">
+  <div class="table-box">
+      <div class="img-box">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSQrOAggbZVYcHRIeaRH9_e95oyIOEccEAEUQ&usqp=CAU">
+      </div>
+      <div class="user-box">
+          <ul class="user-list" *ngIf="news">
+              <h2 class="user-title">{{ news.title }}</h2>
+              <li class="user-item">{{ news.url }}</li>
+              <li class="user-item">{{ news.urlToImage }}</li>
 
 
-<div>Інфо детальне</div>
+          </ul>
+      </div>
+
+  </div>
+</div>

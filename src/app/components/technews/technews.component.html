@@ -12,19 +12,17 @@
 
   <div class="row">
     <div *ngFor="let news of displayTechNews | newsFilter:searchItem:'title' " class="col-lg-3 mt-3 mb-3"
+    (click)="onClickDetailNews(news.title)"
     >
       <div class="box">
-        <img src="{{news.urlToImage }}" width="100%" alt="">
+        <img src="{{news.urlToImage }}" width="100%" alt=""
+         >
         <h3 class="mt-2 mb-2">{{news.title}}
 
         </h3>
         <a href="{{news.url}}" target="_blank" class="btn btn-dark btn-sm mt-2">{{"button" | translate}}</a>
       </div>
 
-      <a class="btn btn-link link-info p-md-1 my-1"
-      [routerLink]="['../features/', news.title]">
-      {{ 'users.userInfo' | translate }}
-  </a>
     </div>
   </div>
 

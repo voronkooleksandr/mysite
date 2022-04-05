@@ -29,7 +29,7 @@ export class HttpService {
     return this.httpClient.get<News[]>(this.urlTechNews);
   }
 
-  getDetailNews(title: string): Observable<any> {
+  getDetailNews(title: string) {
     return this.httpClient.get(`${this.urlTechNews}/${title}`);
   }
 }
