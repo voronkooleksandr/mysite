@@ -19,17 +19,35 @@ export class HttpService {
   urlTechNews: string =
     'https://newsapi.org/v2/top-headlines?country=ua&category=technology&apiKey=c27589af639e48b99d58747c11cd2445';
 
+
   constructor(private httpClient: HttpClient) {}
 
   getAllNews(): Observable<any[]> {
     return this.httpClient.get<News[]>(this.urlAllNews);
   }
 
-  getTechNews(): Observable<any> {
+  getTechNews(): Observable<any[]> {
     return this.httpClient.get<News[]>(this.urlTechNews);
   }
 
-  getDetailNews(title: string) {
-    return this.httpClient.get(`${this.urlTechNews}/${title}`);
+  getDetailNews(author: string) {
+    return this.httpClient.get(`${this.urlTechNews}/${author}`);
   }
+
+  // getTechNews(): Observable <News[]>{
+  //   return this.httpClient.get(this.urlTechNews    ).pipe(
+  //     map((data: any) => {
+  //       let newsList = data.articles;
+  //       //console.log(this.newsList)
+  //       return newsList.map((news: any): News => {
+  //         return new News(
+  //           news.author,
+  //           news.description,
+  //           news.url,
+  //           news.urlToImage
+  //         );
+  //       });
+  //     })
+  //   );
+  // }
 }

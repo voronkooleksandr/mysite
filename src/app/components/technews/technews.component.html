@@ -12,7 +12,8 @@
 
   <div class="row">
     <div *ngFor="let news of displayTechNews | newsFilter:searchItem:'title' " class="col-lg-3 mt-3 mb-3"
-    (click)="onClickDetailNews(news.title)"
+
+  [routerLink]="['../features/', news.title]"
     >
       <div class="box">
         <img src="{{news.urlToImage }}" width="100%" alt=""

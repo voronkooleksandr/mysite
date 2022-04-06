@@ -74,9 +74,9 @@ export class DetailednewsComponent implements OnInit {
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit() {
-    const title = this.route.snapshot.paramMap.get('title')!;
-    this.httpService.getDetailNews(title).subscribe((data) => {
+  ngOnInit(): any {
+    const author = this.route.snapshot.paramMap.get('author')!;
+    this.httpService.getDetailNews(author).subscribe((data) => {
       this.news = data;
     });
   }
@@ -87,4 +87,8 @@ export class DetailednewsComponent implements OnInit {
 
 }
 
+
+function id(id: any) {
+  throw new Error('Function not implemented.');
+}
 
