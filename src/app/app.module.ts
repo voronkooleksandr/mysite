@@ -13,6 +13,7 @@ import { DetailednewsComponent } from './components/technews/detailednews/detail
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
+
 import { HttpService } from './services/http.servise';
 import { FooterComponent } from './pages/footer/footer.component';
 import { NotfoundComponent } from './pages/notfound/notfound.component';

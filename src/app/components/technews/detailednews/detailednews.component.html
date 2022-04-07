@@ -1,3 +1,20 @@
 
-              <h2 class="user-title">{{ news.author }}</h2>
+  <div class="row">
+    <div
+      class="col-lg-3 mt-3 mb-3"
+    >
+      <div class="box" *ngIf="foto">
+        <img src="{{ foto.url }}" width="100%" alt="" />
+        <h3 class="mt-2 mb-2">{{ foto.title }}</h3>
+
+      </div>
+
+      <a
+          href=""
+          class="btn btn-dark btn-sm mt-2"
+          [routerLink]="['/technews']"
+          >Повернутися назад</a
+        >
+    </div>
+  </div>
 

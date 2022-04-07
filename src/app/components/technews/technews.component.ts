@@ -1,7 +1,9 @@
 import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { Fotos } from 'src/app/models/fotos';
 import { HttpService } from 'src/app/services/http.servise';
-import { News } from '../../models/news';
+import { NgxSpinnerService } from 'ngx-spinner';
+
 
 @Component({
   selector: '<app-technews>',
@@ -11,15 +13,20 @@ import { News } from '../../models/news';
 export class TechNewsComponent implements OnInit {
 
   searchItem: string = '';
-  displayTechNews: Array<News> = [];
+  fotoslist: Fotos[] = [];
+  start = 0;
+  data = 5;
 
-  constructor(private httpServise: HttpService, private router: Router) {}
+  constructor(private httpServise: HttpService,
+    private router: Router,
+    private spinner: NgxSpinnerService) {}
 
   ngOnInit(): void {
-    this.httpServise.getTechNews().subscribe((response: any) => {
-      console.log(response);
-      this.displayTechNews = response.articles;
-    });
+      this.httpServise
+      .getFotos(this.start)
+      .subscribe((data: any) => (this.fotoslist = data));
+      console.log(this.fotoslist);
+
   }
 
   search(event: any) {
@@ -33,12 +40,21 @@ export class TechNewsComponent implements OnInit {
     this.httpServise.search.next(this.searchItem);
   }
 
-  onClickDetailNews (id: number) {
-    this.router.navigate(['/features', `${id}`]);
-    console.log(this.router.navigate(['/features/', `${id}`]));
+  onClickDetailNews (author: string) {
+    this.router.navigate(['/technews', `${author}`]);
+    console.log(this.router.navigate(['/technews/', `${author}`]));
 
   }
 
+  @HostListener('document:scroll')
+  onScroll() {
+    if (!this.start) {
+      this.start += 5;
+      this.httpServise
+        .getFotosId(this.start)
+        .subscribe((data: any) => (this.fotoslist = this.fotoslist.concat(data)));
+    }
+  }
 
 
 

@@ -12,7 +12,8 @@ const routes: Routes = [
   {path: "", component: HomeComponent},
   {path: "topnews", component: TopheadingComponent},
   {path: "technews", component: TechNewsComponent},
-  {path: "technews/:id", component: DetailednewsComponent },
+  {path: "technews/foto", redirectTo: "technews", pathMatch: "full"},
+  {path: "technews/foto/:id", component: DetailednewsComponent },
   {path: 'notfound', component: NotfoundComponent},
   {path: '**', redirectTo: "notfound" }
 ];

@@ -55,8 +55,11 @@
 
 
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { ActivatedRoute, Params } from '@angular/router';
+
+import { Observable, Subscription } from 'rxjs';
+import { Fotos } from 'src/app/models/fotos';
+import { News } from 'src/app/models/news';
 import { HttpService } from 'src/app/services/http.servise';
 
 
@@ -66,29 +69,44 @@ import { HttpService } from 'src/app/services/http.servise';
   styleUrls: ['./detailednews.component.scss']
 })
 export class DetailednewsComponent implements OnInit {
-  news: any | {};
-  subs = new Subscription();
 
-  constructor(
+  // id!: number;
+  foto:   any | {} ;
+  // subs = new Subscription();
+
+  constructor (
     private httpService: HttpService,
     private route: ActivatedRoute
   ) {}
 
-  ngOnInit(): any {
-    const author = this.route.snapshot.paramMap.get('author')!;
-    this.httpService.getDetailNews(author).subscribe((data) => {
-      this.news = data;
+  ngOnInit(): void {
+  // this.route.params.subscribe((params: Params) => {
+  //   this.id = params['id']});
+  //   console.log(this.id);
+  //   this.foto = this.httpService.getFotosId(this.id)
+
+    const id = this.route.snapshot.paramMap.get('id')!;
+    this.httpService.getFotosId(+id).subscribe((data) => {
+      this.foto = data;
     });
-  }
 
-  ngOnDestroy() {
-    this.subs.unsubscribe();
   }
-
 }
 
 
-function id(id: any) {
-  throw new Error('Function not implemented.');
-}
+
+//   //   this.httpService.getDetailNews(this.author).subscribe(
+//   //     (data: News)
+//   //   )
+//   // })
+
+//   // const id = this.route.snapshot.paramMap.get('author')!;
+//   //   this.httpService.getDetailNews('author').subscribe((data: any) => {
+//   //     this.news = data;
+//   //   });
+
+
+
+
+// }
 
