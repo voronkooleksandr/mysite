@@ -2,40 +2,26 @@
   <h4>{{ "nav.title-tech" | translate }}</h4>
   <div class="row">
     <div class="col-lg-3">
-      <input
-        class="form-control me-2"
-        type="text"
-        placeholder="{{ 'placeholder' | translate }}"
-        aria-label="Search"
-        [(ngModel)]="searchItem"
-        (keyup)="clean($event)"
-      />
-      <button
-        class="btn btn-outline-success"
-        type="submit"
-        (click)="clean($event)"
-      >
+      <input class="form-control me-2" type="text" placeholder="{{ 'placeholder' | translate }}" aria-label="Search"
+        [(ngModel)]="searchItem" (keyup)="clean($event)" />
+      <button class="btn btn-outline-success" type="submit" (click)="clean($event)">
         {{ "сlean" | translate }}
       </button>
     </div>
   </div>
 
-  <div class="row">
-    <div
-      *ngFor="let foto of fotoslist | newsFilter: searchItem:'title'"
-      class="col-lg-3 mt-3 mb-3"
-    >
-      <div class="box">
-        <img src="{{ foto.url }}" width="100%" alt="" />
-        <h3 class="mt-2 mb-2">{{ foto.title }}</h3>
-        <a
-          href=""
-          class="btn btn-dark btn-sm mt-2"
-          [routerLink]="['foto', foto.id]"
-          >{{ "button" | translate }}</a
-        >
+    <div class="row">
+      <div *ngFor="let foto of fotosList | newsFilter: searchItem:'title' | paginate: { itemsPerPage: 10, currentPage: page } " class="col-lg-3 mt-3 mb-3">
+        <div class="box">
+          <img src="{{ foto.url }}" width="100%" alt="" />
+          <h3 class="mt-2 mb-2">{{ foto.title }}</h3>
+          <a href="" class="btn btn-dark btn-sm mt-2" [routerLink]="['foto', foto.id]">{{ "button" | translate }}</a>
+        </div>
       </div>
+
     </div>
-  </div>
+
+    <pagination-controls (pageChange)="page = $event"></pagination-controls>
+
 </div>
 

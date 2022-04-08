@@ -20,6 +20,8 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { HeaderComponent } from './pages/header/header.component';
 import { HomeComponent } from './pages/home/home.component';
 import { TopheadingComponent } from './components/topheading/topheading.component';
+import { NgxPaginationModule } from 'ngx-pagination';
+
 
 export function createTranslateLoader(http: HttpClient) {
   return new TranslateHttpLoader(http, './assets/i18n/', '.json');
@@ -44,6 +46,7 @@ export function createTranslateLoader(http: HttpClient) {
     BrowserAnimationsModule,
     FormsModule,
     ReactiveFormsModule,
+    NgxPaginationModule,
     TranslateModule.forRoot({
       loader: {
         provide: TranslateLoader,

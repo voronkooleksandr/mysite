@@ -13,19 +13,21 @@ import { NgxSpinnerService } from 'ngx-spinner';
 export class TechNewsComponent implements OnInit {
 
   searchItem: string = '';
-  fotoslist: Fotos[] = [];
+  fotosList: Fotos[] = [];
   start = 0;
-  data = 5;
+  page: number = 1;
 
   constructor(private httpServise: HttpService,
-    private router: Router,
-    private spinner: NgxSpinnerService) {}
+    private router: Router) {}
 
   ngOnInit(): void {
+
       this.httpServise
       .getFotos(this.start)
-      .subscribe((data: any) => (this.fotoslist = data));
-      console.log(this.fotoslist);
+      .subscribe((data: any) => {
+        this.fotosList = data;
+        console.log(this.fotosList);
+      });
 
   }
 
@@ -45,18 +47,6 @@ export class TechNewsComponent implements OnInit {
     console.log(this.router.navigate(['/technews/', `${author}`]));
 
   }
-
-  @HostListener('document:scroll')
-  onScroll() {
-    if (!this.start) {
-      this.start += 5;
-      this.httpServise
-        .getFotosId(this.start)
-        .subscribe((data: any) => (this.fotoslist = this.fotoslist.concat(data)));
-    }
-  }
-
-
 
 }
 

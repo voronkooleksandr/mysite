@@ -92,21 +92,3 @@ export class DetailednewsComponent implements OnInit {
 
   }
 }
-
-
-
-//   //   this.httpService.getDetailNews(this.author).subscribe(
-//   //     (data: News)
-//   //   )
-//   // })
-
-//   // const id = this.route.snapshot.paramMap.get('author')!;
-//   //   this.httpService.getDetailNews('author').subscribe((data: any) => {
-//   //     this.news = data;
-//   //   });
-
-
-
-
-// }
-
