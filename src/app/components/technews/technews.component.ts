@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Fotos } from 'src/app/models/fotos';
 import { HttpService } from 'src/app/services/http.servise';
-import { NgxSpinnerService } from 'ngx-spinner';
+
 
 
 @Component({
